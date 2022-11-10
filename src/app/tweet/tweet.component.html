@@ -1,0 +1,30 @@
+<mat-tab-group class="content-products">
+    <mat-tab class="row" label="Moderador">
+        <ng-container *ngFor="let tweet of listTweets">
+            <mat-card style="margin:2em;" class="col-4" *ngIf="tweet.categoria == ''">
+                <mat-card-title>
+                    <mat-label>{{ tweet.categoria }}</mat-label>
+                    <mat-select [value]="categorias[0].id">
+                        <mat-option *ngFor="let cat of categorias" [value]="cat.id">
+                            {{ cat.type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-card-title>
+                <mat-card-subtitle>{{tweet.mensagem}}</mat-card-subtitle>
+                <mat-card-actions>
+                    <button mat-raised-button (click)="Aprove(tweet)">Aprovar</button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-container>
+    </mat-tab>
+    <mat-tab label="Tela">
+        <ng-container *ngFor="let tweet of listTweets">
+            <mat-card style="margin:2em;" class="col-4" *ngIf="tweet.categoria != ''">
+                <mat-card-title>
+                    <mat-label>{{ tweet.categoria }}</mat-label>
+                </mat-card-title>
+                <mat-card-subtitle>{{tweet.mensagem}}</mat-card-subtitle>
+            </mat-card>
+        </ng-container>
+    </mat-tab>
+</mat-tab-group>
