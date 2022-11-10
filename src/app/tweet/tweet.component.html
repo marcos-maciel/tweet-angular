@@ -2,15 +2,17 @@
     <mat-tab class="row" label="Moderador">
         <ng-container *ngFor="let tweet of listTweets">
             <mat-card style="margin:2em;" class="col-4" *ngIf="tweet.categoria == ''">
-                <mat-card-title>
-                    <mat-label>{{ tweet.categoria }}</mat-label>
+                <mat-card-header>
+                    <mat-card-title> {{ tweet.mensagem }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-label>Categoria: {{ tweet.categoria }}</mat-label>
                     <mat-select [value]="categorias[0].id">
                         <mat-option *ngFor="let cat of categorias" [value]="cat.id">
                             {{ cat.type }}
                         </mat-option>
                     </mat-select>
-                </mat-card-title>
-                <mat-card-subtitle>{{tweet.mensagem}}</mat-card-subtitle>
+                </mat-card-content>
                 <mat-card-actions>
                     <button mat-raised-button (click)="Aprove(tweet)">Aprovar</button>
                 </mat-card-actions>

@@ -1,5 +1,15 @@
 ::ng-deep {
+    body {
+      background: aliceblue;
+    }
+    
   .mat-tab-labels {
     justify-content: center;
   }
+
+  mat-card  {
+    width: 20%;
+  }
 }
+
+
